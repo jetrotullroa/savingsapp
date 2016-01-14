@@ -1,4 +1,10 @@
 @Records = React.createClass
+  addRecord: (record) ->
+    records = @state.records.slice()
+    records.push record
+    @setState records: records
+
+
   getInitialState: ->
     records: @props.data
   getDefaultProps: ->
@@ -9,6 +15,8 @@
      React.DOM.h2
       className: 'title'
       'Records'
+     React.createElement RecordForm, handleNewRecord: @addRecord
+     React.DOM.hr null
      React.DOM.div
        className: 'container'
        React.DOM.table
