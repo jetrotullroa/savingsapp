@@ -51,5 +51,11 @@
       @setState @getInitialState()
       'JSON'
 
+  getInitialState: ->
+    edit: false
+  handleToggle: (e) ->
+    e.preventDefault()
+    @setState edit: !@state.edit
+
   valid: ->
     @state.title && @state.date && @state.amount
